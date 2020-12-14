@@ -3,7 +3,6 @@ import { getUsers } from "../../utils/API";
 
 class Employees extends Component {
   state = {
-    search: "",
     users: []
   };
 
@@ -21,7 +20,12 @@ class Employees extends Component {
       <div className="row">
         <div className="col-sm-4">
           {this.state.users.map((user) => (
-            <div>{user.name.first}</div>
+           <div>{user.name.first} {user.name.last}</div>
+          ))}
+        </div>
+        <div className="col-sm-4">
+          {this.state.users.map((user) => (
+           <div>{user.location.country}</div>
           ))}
         </div>
       </div>
