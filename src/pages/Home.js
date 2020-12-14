@@ -1,29 +1,14 @@
 import React, { Component } from "react";
 import { getUsers } from "../utils/API";
+import Employees from "../components/employees/Employees";
 
-class Home extends Component {
-  state = {
-    search: "",
-    results: []
-  }
-
-  componentDidMount(){
-    getUsers()
-      .then(res => this.setState({ results: res.data.results[0].gender }))
-      .catch(err => console.log(err));
-  }
-
-  render(){
-    return (
-      <div class="container">
-        <h1>Home Page</h1>
-        <p>
-          {this.state.results}
-        </p>
-      </div>
-    );
-  }
-  
+function Home() {
+  return (
+    <div className="container">
+      <h1>Home Page</h1>
+      <Employees />
+    </div>
+  );
 }
 
 export default Home;
