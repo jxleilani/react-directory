@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { getUsers } from "../utils/API";
+import React from "react";
 import Employees from "../components/employees/Employees";
 
 function Home() {

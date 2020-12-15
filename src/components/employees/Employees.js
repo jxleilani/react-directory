@@ -1,35 +1,29 @@
 import React, { Component } from "react";
 import { getUsers } from "../../utils/API";
+import Employee from "./Employee";
 
 class Employees extends Component {
   state = {
-    users: []
+    employees: [],
   };
 
   componentDidMount() {
     getUsers()
       .then((res) => {
-        this.setState({ users: res.data.results });
-        console.log(this.state.users);
+        this.setState({ employees: res.data.results });
+        console.log(this.state.employees);
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    return (
-      <div className="row">
-        <div className="col-sm-4">
-          {this.state.users.map((user) => (
-           <div>{user.name.first} {user.name.last}</div>
-          ))}
-        </div>
-        <div className="col-sm-4">
-          {this.state.users.map((user) => (
-           <div>{user.location.country}</div>
-          ))}
-        </div>
-      </div>
-    );
+    return this.state.employees.map((user) => (
+      <Employee
+        first={user.name.first}
+        last={user.name.first}
+        country={user.location.country}
+      />
+    ));
   }
 }
 
