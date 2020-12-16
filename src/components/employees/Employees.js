@@ -20,8 +20,10 @@ class Employees extends Component {
     return this.state.employees.map((user) => (
       <Employee
         first={user.name.first}
-        last={user.name.first}
-        country={user.location.country}
+        last={user.name.last}
+        email={user.email}
+        city={user.location.city}
+        state={user.location.state}
       />
     ));
   }
