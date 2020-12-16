@@ -1,13 +1,19 @@
 import React from "react";
+import './employee.css';
 
 const Employee = (props) => {
   return (
-    <div className="row">
-      <div className="col-sm-4">
+    <div className="row employee">
+      <div className="col-sm-2">
+        <img alt="user" src={props.img}></img>
+      </div>
+      <div className="col-sm-2">
         {props.first} {props.last}
       </div>
-      <div className="col-sm-4">{props.email}</div>
-      <div className="col-sm-4">{props.city}, {props.state}</div>
+      <div className="col-sm-3">{props.email}</div>
+      <div className="col-sm-3">
+        {props.city}, {props.state}
+      </div>
     </div>
   );
 };

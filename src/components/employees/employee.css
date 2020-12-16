@@ -1,0 +1,8 @@
+.employee {
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 5px;
+}
+.name {
+  cursor: pointer;
+}

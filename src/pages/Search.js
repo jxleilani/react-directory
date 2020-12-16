@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react';
+import './search.css';
 
-function Search() {
-  return (
-    <div className="container">
-    <div className="row">
-      <div className="col-sm">One</div>
-      <div className="col-sm">Two</div>
-      <div className="col-sm">three</div>
+class Search extends Component {
+  
+  render() {
+    return (
+    <div className="container search-box">
+      <input></input>
+      <button>Search</button>
     </div>
-    </div>
-  )
+    );
+  }
 }
 
 export default Search;
