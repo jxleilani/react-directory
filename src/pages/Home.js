@@ -1,10 +1,15 @@
 import React from "react";
 import Employees from "../components/employees/Employees";
+import "./home.css";
+
 
 function Home() {
   return (
     <div className="container">
-      <h1>Home Page</h1>
+      <div className="text-center directory">
+        <h1>Employee Directory</h1>
+        <h5>Click the column headings to sort.</h5>
+      </div>
       <div className="container employees">
       <Employees />
       </div>

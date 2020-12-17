@@ -33,9 +33,9 @@ class Employees extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row text-center">
+        <div className="row text-center headings">
           <div className="col-sm-2"></div>
-          <div className="col-sm-2 name" onClick={this.sortName}>
+          <div className="col-sm-3 name" onClick={this.sortName}>
             Name
           </div>
           <div className="col-sm-3 email" onClick={this.sortEmail}>Email</div>
