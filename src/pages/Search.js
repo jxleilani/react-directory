@@ -22,7 +22,9 @@ class Search extends Component {
     let filterArr = [];
     this.setState({ search: value });
 
-    filterArr = this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(value.toLowerCase()));
+    filterArr = this.state.employees.filter(employee => {
+      return employee.name.first.toLowerCase().includes(value.toLowerCase()) || employee.name.last.toLowerCase().includes(value.toLowerCase()) || employee.location.city.toLowerCase().includes(value.toLowerCase()) || employee.location.state.toLowerCase().includes(value.toLowerCase());
+    });
     this.setState({ employees: filterArr });
   };
 
@@ -47,7 +49,7 @@ class Search extends Component {
             value={this.state.search}
             onChange={this.handleSearch}
             type="text"
-            placeholder="Search by Name"
+            placeholder="Enter Search Term"
           ></input>
           <button>Search</button>
         </form>
