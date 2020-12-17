@@ -3,6 +3,8 @@
   border-radius: 20px;
   padding: 5px;
 }
-.name {
+.name,
+.email,
+.citystate {
   cursor: pointer;
 }

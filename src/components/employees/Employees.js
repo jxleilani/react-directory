@@ -18,11 +18,17 @@ class Employees extends Component {
   }
 
   sortName = () => {
-    console.log(this.state.employees[0].name.first);
     const sortArr = this.state.employees.sort((a, b) => (a.name.first > b.name.first ? 1 : -1));
-    console.log(sortArr);
     this.setState({ employees: sortArr });
-  };
+  }
+  sortEmail = () => {
+    const sortArr = this.state.employees.sort((a, b) => (a.email > b.email ? 1 : -1));
+    this.setState({ employees: sortArr });
+  }
+  sortCity = () => {
+    const sortArr = this.state.employees.sort((a, b) => (a.location.city > b.location.city ? 1 : -1));
+    this.setState({ employees: sortArr });
+  }
 
   render() {
     return (
@@ -32,8 +38,8 @@ class Employees extends Component {
           <div className="col-sm-2 name" onClick={this.sortName}>
             Name
           </div>
-          <div className="col-sm-3">Email</div>
-          <div className="col-sm-3">City, State</div>
+          <div className="col-sm-3 email" onClick={this.sortEmail}>Email</div>
+          <div className="col-sm-3 citystate" onClick={this.sortCity}>City, State</div>
         </div>
         <div className="row">
           <div className="col">
