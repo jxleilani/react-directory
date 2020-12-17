@@ -22,7 +22,7 @@ class Search extends Component {
     let filterArr = [];
     this.setState({ search: value });
 
-    filterArr = this.state.employees.filter(employee => employee.name.first.includes(value));
+    filterArr = this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(value.toLowerCase()));
     this.setState({ employees: filterArr });
   };
 
