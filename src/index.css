@@ -1,0 +1,12 @@
+.search-box {
+  display: flex;
+  width: 300px;
+  margin: 20px auto;
+  justify-content: center;
+}
+.directory {
+  margin: 20px auto 50px;
+}
+.directory h1 {
+  margin-bottom: 20px;
+}

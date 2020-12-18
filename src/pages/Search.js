@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getUsers from "../utils/API";
 import Employee from "../components/employees/Employee";
-import "./search.css";
+// import "./search.css";
 
 class Search extends Component {
   state = {
