@@ -67,7 +67,7 @@ class Search extends Component {
             type="text"
             placeholder="Enter Search Term"
           ></input>
-          <button>Search</button>
+          <button className="btn btn-secondary">Search</button>
         </form>
         <div className="container">
           <div className="row text-center headings">
