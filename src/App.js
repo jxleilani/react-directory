@@ -5,7 +5,7 @@ import Search from './pages/Search';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-directory">
       <div className="container-fluid"> 
         <Navbar />
         <Route exact path="/" component={Search} />
