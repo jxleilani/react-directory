@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import getUsers from "../utils/API";
 import Employee from "../components/employees/Employee";
+import Main from "../components/Main";
+import Section from "../components/Section";
+import Wrapper from "../components/Wrapper";
 
 class Home extends Component {
   state = {
@@ -54,36 +57,49 @@ class Home extends Component {
 
   render() {
     return (
-    <div className="container">
-      <div className="text-center directory">
-        <h1>Employee Directory</h1>
-        <h5>Click the column headings to sort.</h5>
-      </div>
-
-      <section>
-      <form className="search-form">
-          <input
-            value={this.state.search}
-            onChange={this.handleSearch}
-            type="text"
-            placeholder="Enter Search Term"
-          ></input>
-          <button className="btn btn-secondary">Search</button>
-      </form>
-      </section>
-
-      <section>
-        <table className="table table-light table-striped">
-          <thead className="text-dark">
-            <tr>
-              <th scope="col text-center"></th>
-              <th scope="col text-center" className="name" onClick={this.sortName}>Name</th>
-              <th scope="col text-center" className="email" onClick={this.sortEmail}>Email</th>
-              <th scope="col text-center" className="citystate" onClick={this.sortCity}>City, State</th>
-            </tr>
-          </thead>
-          <tbody>
-          {this.state.employees.map((user) => (
+      <Wrapper>
+        <Main />
+        <Section>
+          <form className="search-form">
+            <input
+              value={this.state.search}
+              onChange={this.handleSearch}
+              type="text"
+              placeholder="Enter Search Term"
+            ></input>
+            <button className="btn btn-secondary">Search</button>
+          </form>
+        </Section>
+        <Section>
+          <table className="table table-light table-striped">
+            <thead className="text-dark">
+              <tr>
+                <th scope="col text-center"></th>
+                <th
+                  scope="col text-center"
+                  className="name"
+                  onClick={this.sortName}
+                >
+                  Name
+                </th>
+                <th
+                  scope="col text-center"
+                  className="email"
+                  onClick={this.sortEmail}
+                >
+                  Email
+                </th>
+                <th
+                  scope="col text-center"
+                  className="citystate"
+                  onClick={this.sortCity}
+                >
+                  City, State
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.employees.map((user) => (
                 <Employee
                   key={user.email}
                   first={user.name.first}
@@ -94,14 +110,10 @@ class Home extends Component {
                   img={user.picture.medium}
                 />
               ))}
-          </tbody>
-
-        </table>
-      </section>
-
-
-
-    </div>
+            </tbody>
+          </table>
+        </Section>
+      </Wrapper>
     );
   }
 }
