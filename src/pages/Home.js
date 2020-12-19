@@ -61,7 +61,7 @@ class Home extends Component {
       </div>
 
       <section>
-      <form>
+      <form className="search-form">
           <input
             value={this.state.search}
             onChange={this.handleSearch}
