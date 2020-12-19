@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import getUsers from "../utils/API";
 import Employee from "../components/employees/Employee";
-// import "./search.css";
 
-class Search extends Component {
+class Home extends Component {
   state = {
     employees: [],
     search: "",
@@ -18,6 +17,7 @@ class Search extends Component {
   }
 
   handleSearch = (e) => {
+    e.preventDefault();
     const { value } = e.target;
     let filterArr = [];
     this.setState({ search: value });
@@ -54,13 +54,14 @@ class Search extends Component {
 
   render() {
     return (
-    <div>
+    <div className="container">
       <div className="text-center directory">
         <h1>Employee Directory</h1>
         <h5>Click the column headings to sort.</h5>
       </div>
-      <div className="container search-box">
-        <form>
+
+      <section>
+      <form>
           <input
             value={this.state.search}
             onChange={this.handleSearch}
@@ -68,23 +69,21 @@ class Search extends Component {
             placeholder="Enter Search Term"
           ></input>
           <button className="btn btn-secondary">Search</button>
-        </form>
-        <div className="container">
-          <div className="row text-center headings">
-            <div className="col-sm-2"></div>
-            <div className="col-sm-3 name" onClick={this.sortName}>
-              Name
-            </div>
-            <div className="col-sm-3 email" onClick={this.sortEmail}>
-              Email
-            </div>
-            <div className="col-sm-3 citystate" onClick={this.sortCity}>
-              City, State
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              {this.state.employees.map((user) => (
+      </form>
+      </section>
+
+      <section>
+        <table className="table table-light table-striped">
+          <thead className="text-dark">
+            <tr>
+              <th scope="col text-center"></th>
+              <th scope="col text-center" className="name" onClick={this.sortName}>Name</th>
+              <th scope="col text-center" className="email" onClick={this.sortEmail}>Email</th>
+              <th scope="col text-center" className="citystate" onClick={this.sortCity}>City, State</th>
+            </tr>
+          </thead>
+          <tbody>
+          {this.state.employees.map((user) => (
                 <Employee
                   key={user.email}
                   first={user.name.first}
@@ -95,13 +94,16 @@ class Search extends Component {
                   img={user.picture.medium}
                 />
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
+          </tbody>
+
+        </table>
+      </section>
+
+
+
     </div>
     );
   }
 }
 
-export default Search;
+export default Home;
