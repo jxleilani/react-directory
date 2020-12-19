@@ -1,4 +1,4 @@
-# React Employee Directory
+# [React Employee Directory](https://jxleilani.github.io/react-directory/)
 An employee directory built with React and [ranomuser.me API](https://randomuser.me). The user can sort the table of employee information by clicking on the column headings. The user can also use the search input to search for terms located anywhere within the table. 
 
 ![screenshot](https://user-images.githubusercontent.com/67127664/102676679-bbebd380-416c-11eb-9e5d-a615e803c3e9.png)
