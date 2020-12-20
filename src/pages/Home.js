@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import getUsers from "../utils/API";
-import Employee from "../components/employees/Employee";
 import Main from "../components/Main";
 import Section from "../components/Section";
 import Wrapper from "../components/Wrapper";
+import Form from "../components/Form";
+import Table from "../components/Table";
 
 class Home extends Component {
   state = {
@@ -60,58 +61,15 @@ class Home extends Component {
       <Wrapper>
         <Main />
         <Section>
-          <form className="search-form">
-            <input
-              value={this.state.search}
-              onChange={this.handleSearch}
-              type="text"
-              placeholder="Enter Search Term"
-            ></input>
-            <button className="btn btn-secondary">Search</button>
-          </form>
+          <Form search={this.state.search} handleSearch={this.handleSearch} />
         </Section>
         <Section>
-          <table className="table table-light table-striped">
-            <thead className="text-dark">
-              <tr>
-                <th scope="col text-center"></th>
-                <th
-                  scope="col text-center"
-                  className="name"
-                  onClick={this.sortName}
-                >
-                  Name
-                </th>
-                <th
-                  scope="col text-center"
-                  className="email"
-                  onClick={this.sortEmail}
-                >
-                  Email
-                </th>
-                <th
-                  scope="col text-center"
-                  className="citystate"
-                  onClick={this.sortCity}
-                >
-                  City, State
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.employees.map((user) => (
-                <Employee
-                  key={user.email}
-                  first={user.name.first}
-                  last={user.name.last}
-                  email={user.email}
-                  city={user.location.city}
-                  state={user.location.state}
-                  img={user.picture.medium}
-                />
-              ))}
-            </tbody>
-          </table>
+          <Table
+            sortName={this.sortName}
+            sortEmail={this.sortEmail}
+            sortCity={this.sortCity}
+            employees={this.state.employees}
+          />
         </Section>
       </Wrapper>
     );
